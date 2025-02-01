@@ -18,6 +18,7 @@ function createWindow() {
         height: 720,
         minWidth: 960,
         minHeight: 640,
+        icon: isProduction? path.join(__dirname, 'public', 'icon.png') : 'public/icon.png',
         backgroundColor: '#000',
         webPreferences: {
             devTools: true,
@@ -29,7 +30,7 @@ function createWindow() {
         titleBarStyle: 'hiddenInset',
         frame: true,
         titleBarOverlay: platform === 'darwin' && { height: headerSize },
-        title: 'Electron / Nuxt template',
+        title: 'FullBowody',
         autoHideMenuBar: true,
     });
 
