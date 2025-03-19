@@ -15,7 +15,8 @@ export default defineI18nLocale(async (locale) => {
             light: 'Light',
             dark: 'Dark'
         },
-        index: (await import('./en-US/index')).default,
+        app: (await import('./en-US/app')).default,
+        tutorial: (await import('./en-US/tutorial')).default,
         verbs: (await import('./en-US/verbs')).default,
     };
 });
