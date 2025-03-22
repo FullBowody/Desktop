@@ -6,7 +6,6 @@ class CustomRouter {
 
     static push(path: string) {
         this.history.push(path);
-        window.history.pushState({}, '', path);
         this.currentRoute.value.value = path;
         
         this.hideAnimation.value = 'hide-left';

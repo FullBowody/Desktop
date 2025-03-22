@@ -4,8 +4,8 @@ const Platform = builder.Platform;
 
 /** @type {import('electron-builder').Configuration}*/
 const options = {
-    appId: 'com.app.id',
-    productName: 'electron-nuxt-template',
+    appId: 'com.furwaz.fullbowody',
+    productName: 'FullBowody',
     asar: true,
     // protocols: {
     //     name: 'Your deeplink',
@@ -54,6 +54,7 @@ const options = {
                 arch: ['x64', 'ia32'],
             },
         ],
+        icon: 'assets/icon.ico',
     },
     nsis: {
         oneClick: false,
@@ -80,6 +81,7 @@ const options = {
             MimeType: 'x-scheme-handler/deeplink',
         },
         target: ['AppImage', 'rpm', 'deb'],
+        icon: 'assets/icon.png',
     }
 };
 

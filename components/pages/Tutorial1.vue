@@ -34,6 +34,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 const router = useCustomRouter();
 const { t } = useI18n();
 const constants = useConstants();
+const { getResourcePath } = useElectron();
 
 localStorage.setItem('tutorial', '1');
 function skipTutorial() {
@@ -48,17 +49,19 @@ const imgSettings = {
     distance: 2,
 };
 const loader = new GLTFLoader();
-loader.load('/models/tuto-1-guy.glb', (gltf) => {
-    const material = new THREE.MeshStandardMaterial({ color: constants.PRIMARY_COLOR });
-    gltf.scene.traverse((child) => {
-        if (child instanceof THREE.Mesh) {
-            child.material = material;
-        }
-    });
+getResourcePath('/models/tuto-1-guy.glb').then((path: string) => {
+    loader.load(path, (gltf) => {
+        const material = new THREE.MeshStandardMaterial({ color: constants.PRIMARY_COLOR });
+        gltf.scene.traverse((child) => {
+            if (child instanceof THREE.Mesh) {
+                child.material = material;
+            }
+        });
 
-    gltf.scene.rotation.set(0, 2.5*Math.PI/4, 0);
-    gltf.scene.position.set(0.8, 0, -0.5);
-    imgSettings.scene.add(gltf.scene);
+        gltf.scene.rotation.set(0, 2.5*Math.PI/4, 0);
+        gltf.scene.position.set(0.8, 0, -0.5);
+        imgSettings.scene.add(gltf.scene);
+    });
 });
 const gridHelper = new THREE.GridHelper(10, 10);
 imgSettings.scene.add(gridHelper);

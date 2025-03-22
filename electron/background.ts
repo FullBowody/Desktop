@@ -26,7 +26,6 @@ function createWindow() {
             contextIsolation: false,
             preload: path.join(__dirname, 'preload.js')
         },
-
         titleBarStyle: 'hiddenInset',
         frame: true,
         titleBarOverlay: platform === 'darwin' && { height: headerSize },
@@ -41,6 +40,10 @@ function createWindow() {
             shell.openExternal(url);
         }
         return { action: 'deny' };
+    });
+    
+    mainWindow.webContents.ipc.handle('get:resourcePath', (_event, inpath: string) => {
+        return isProduction ? path.join(__dirname, 'public', inpath) : inpath;
     });
 
     // Open devtools in development mode

@@ -37,6 +37,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 const router = useCustomRouter();
 const { t } = useI18n();
 const constants = useConstants();
+const { getResourcePath } = useElectron();
 
 localStorage.setItem('tutorial', '2');
 function skipTutorial() {
@@ -50,18 +51,21 @@ const imgSettings = {
     angle: new THREE.Euler(0, -0.3, 0),
     distance: 2,
 };
-const loader = new GLTFLoader();
-loader.load('/models/tuto-2-guy.glb', (gltf) => {
-    const material = new THREE.MeshStandardMaterial({ color: constants.PRIMARY_COLOR });
-    gltf.scene.traverse((child) => {
-        if (child instanceof THREE.Mesh) {
-            child.material = material;
-        }
-    });
 
-    gltf.scene.rotation.set(0, -0.5*Math.PI/2, 0);
-    gltf.scene.position.set(-0.8, 0, 0.5);
-    imgSettings.scene.add(gltf.scene);
+const loader = new GLTFLoader();
+getResourcePath('/models/tuto-2-guy.glb').then((path: string) => {
+    loader.load(path, (gltf) => {
+        const material = new THREE.MeshStandardMaterial({ color: constants.PRIMARY_COLOR });
+        gltf.scene.traverse((child) => {
+            if (child instanceof THREE.Mesh) {
+                child.material = material;
+            }
+        });
+
+        gltf.scene.rotation.set(0, -0.5*Math.PI/2, 0);
+        gltf.scene.position.set(-0.8, 0, 0.5);
+        imgSettings.scene.add(gltf.scene);
+    });
 });
 const gridHelper = new THREE.GridHelper(10, 10);
 imgSettings.scene.add(gridHelper);
