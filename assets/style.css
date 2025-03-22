@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+:root {
+    --easing: cubic-bezier(.25,0,0,1);
+    --timing: .5s;
+}
+
 html {
     display: flex;
     min-height: 100%;
@@ -12,13 +17,129 @@ body, body > div#__nuxt {
 }
 
 h1 {
-    @apply text-6xl font-bold;
+    @apply text-6xl font-bold drop-shadow-lg;
 }
 
 h2 {
-    @apply text-2xl font-semibold;
+    @apply text-3xl font-bold drop-shadow-lg;
+}
+
+h3 {
+    @apply text-xl font-semibold drop-shadow-lg;
 }
 
 p {
-    @apply text-lg font-semibold;
+    @apply text-base font-normal drop-shadow-lg;
 }
+
+a:not(.items-center) {
+    @apply text-blue-500 border-b-2 border-blue-500;
+}
+
+@keyframes show {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes show-up {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes show-down {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes show-left {
+    0% { opacity: 0; transform: translateX(20px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes show-right {
+    0% { opacity: 0; transform: translateX(-20px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes hide {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+@keyframes hide-up {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
+}
+@keyframes hide-down {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(20px); }
+}
+@keyframes hide-left {
+    0% { opacity: 1; transform: translateX(0); }
+    100% { opacity: 0; transform: translateX(-20px); }
+}
+@keyframes hide-right {
+    0% { opacity: 1; transform: translateX(0); }
+    100% { opacity: 0; transform: translateX(20px); }
+}
+
+.show {
+    opacity: 0;
+    animation: show var(--timing) var(--easing) forwards;
+}
+.show-up {
+    opacity: 0;
+    animation: show-up var(--timing) var(--easing) forwards;
+}
+.show-down {
+    opacity: 0;
+    animation: show-down var(--timing) var(--easing) forwards;
+}
+.show-left {
+    opacity: 0;
+    animation: show-left var(--timing) var(--easing) forwards;
+}
+.show-right {
+    opacity: 0;
+    animation: show-right var(--timing) var(--easing) forwards;
+}
+
+.hide {
+    opacity: 0;
+    animation: hide var(--timing) var(--easing) forwards;
+}
+.hide-up {
+    opacity: 0;
+    animation: hide-up var(--timing) var(--easing) forwards;
+}
+.hide-down {
+    opacity: 0;
+    animation: hide-down var(--timing) var(--easing) forwards;
+}
+.hide-left {
+    opacity: 0;
+    animation: hide-left var(--timing) var(--easing) forwards;
+}
+.hide-right {
+    opacity: 0;
+    animation: hide-right var(--timing) var(--easing) forwards;
+}
+
+button, a {
+    @apply translate-x-0 transition-transform;
+    animation-duration: var(--timing);
+    animation-timing-function: var(--easing);
+    animation-fill-mode: forwards;
+}
+
+button > span, a > span {
+    @apply translate-x-0 transition-transform;
+    animation-duration: var(--timing);
+    animation-timing-function: var(--easing);
+    animation-fill-mode: forwards;
+}
+
+button.shadow-sm, a.shadow-sm {
+    @apply shadow-lg !important;
+}
+
+button.animate:hover, a.animate:hover { @apply translate-x-1; }
+button.animate:hover > span, a.animate:hover > span { @apply translate-x-1; }
+
+button[heading].animate:hover, a[heading].animate:hover { @apply -translate-x-1; }
+button[heading].animate:hover > span, a[heading].animate:hover > span { @apply -translate-x-1; }
