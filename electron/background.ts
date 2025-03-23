@@ -48,7 +48,7 @@ function createWindow() {
 
     // Open devtools in development mode
     if (!isProduction) {
-        mainWindow.webContents.openDevTools({mode: 'right'});
+        // mainWindow.webContents.openDevTools({mode: 'right'});
     }
 
     // Open the web interface
