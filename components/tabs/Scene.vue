@@ -2,13 +2,13 @@
     <div class="relative flex flex-col grow w-full h-full">
         <canvas id="canvas" class="flex grow" />
 
-        <div class="absolute top-0 right-0 p-2">
+        <div class="show-down absolute top-0 right-0 p-2">
             <UButton icon="i-heroicons-plus" @click="onAddNewMarker">
                 Ajouter un marqueur
             </UButton>
         </div>
 
-        <div class="absolute bottom-0 right-0 left-0 p-2 flex justify-center">
+        <div class="show-up absolute bottom-0 right-0 left-0 p-2 flex justify-center">
             <UButton :icon="trackingButtonIcon" size="xl" @click="onTrackingPressed" :loading="trackingButtonLoading">
                 {{ trackingButtonState ? 'Arrêter le suivi' : 'Commencer le suivi' }}
             </UButton>
