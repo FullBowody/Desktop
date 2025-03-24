@@ -1,7 +1,7 @@
 <template>
     <div class="relative">
         <UButton @click="triggerClick" :variant="selected? 'solid' : 'ghost'" size="xl" :color="selected? 'primary' : 'gray'" :icon="icon" heading></UButton>
-        <div class="tooltip pointer-events-none absolute left-[100%] top-0 flex h-full justify-center items-center pl-2">
+        <div class="z-50 tooltip pointer-events-none absolute left-[100%] top-0 flex h-full justify-center items-center pl-2">
             <div class="rounded-md px-2 py-1 shadow-md bg-white dark:bg-slate-800">
                 <p> {{ name }} </p>
             </div>

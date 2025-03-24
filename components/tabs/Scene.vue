@@ -4,31 +4,31 @@
 
         <div class="show-down absolute top-0 right-0 p-2">
             <UButton icon="i-heroicons-plus" @click="onAddNewMarker">
-                Ajouter un marqueur
+                {{ $t('home.scene.addMarker') }}
             </UButton>
         </div>
 
         <div class="show-up absolute bottom-0 right-0 left-0 p-2 flex justify-center">
             <UButton :icon="trackingButtonIcon" size="xl" @click="onTrackingPressed" :loading="trackingButtonLoading">
-                {{ trackingButtonState ? 'Arrêter le suivi' : 'Commencer le suivi' }}
+                {{ trackingButtonState ? $t('home.scene.stopTracking') : $t('home.scene.startTracking') }}
             </UButton>
         </div>
     </div>
     <UModal v-model="showNewMarkerModal">
         <div class="p-4 space-y-8">
-            <h3>Ajouter un marqueur</h3>
+            <h3> {{ $t('home.scene.addMarker') }} </h3>
             <div class="flex flex-col space-y-4">
-                <UFormGroup label="ID du marqueur" class="flex space-x-4 justify-between items-center">
+                <UFormGroup :label="$t('home.scene.markerPopup.markerId')" class="flex space-x-4 justify-between items-center">
                     <UInput v-model="markerId" type="number" min="0" max="15" />
                 </UFormGroup>
             </div>
             <UAlert class="show-up" color="red" variant="subtle" v-if="!markerIdValid"
-                title="Marqueur déjà présent"
-                description="Un marqueur avec cet ID est déjà présent dans la scène."
+                :title="$t('home.scene.markerPopup.alreadyPresent')"
+                :description="$t('home.scene.markerPopup.alreadyPresentMessage')"
             />
             <div class="flex justify-between">
-                <UButton variant="ghost" @click="showNewMarkerModal = false">Annuler</UButton>
-                <UButton @click="addMarker" :disabled="!markerIdValid">Ajouter</UButton>
+                <UButton variant="ghost" @click="showNewMarkerModal = false"> {{ $t('verbs.cancel') }} </UButton>
+                <UButton @click="addMarker" :disabled="!markerIdValid"> {{ $t('verbs.add') }} </UButton>
             </div>
         </div>
     </UModal>
@@ -39,7 +39,7 @@ import Scene from '~/assets/scripts/Scene';
 
 const showNewMarkerModal = ref(false);
 const markerId = ref(0);
-const markerIdValid = computed(() => markerId.value !== 1);
+const markerIdValid = computed(() => markerId.value !== 0);
 
 function onAddNewMarker() {
     showNewMarkerModal.value = true;

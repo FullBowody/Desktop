@@ -26,6 +26,7 @@ class Scene {
         
         this.camera.position.z = 5;
         this.camera.position.y = 5;
+        this.camera.position.x = 5;
         this.camera.lookAt(0, 0, 0);
 
         this.render = this.render.bind(this);
