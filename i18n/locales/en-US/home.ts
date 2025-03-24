@@ -15,9 +15,24 @@ export default {
     },
     listeners: {
         title: 'Listeners',
+        server: 'Server',
+        address: 'Address',
+        port: 'Port',
+        status: {
+            title: 'Status',
+            stopped: 'Stopped',
+            running: 'Running',
+            starting: 'Starting',
+            stopping: 'Stopping',
+        },
+        noListener: 'No listener',
+        noListenerMessage: 'No listener is currently connected',
     },
     plugins: {
         title: 'Plugins',
+    },
+    about: {
+        title: 'About',
     },
     settings: {
         title: 'Settings',

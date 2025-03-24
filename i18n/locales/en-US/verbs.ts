@@ -10,4 +10,6 @@ export default {
     create: 'Create',
     save: 'Save',
     add: 'Add',
+    start: 'Start',
+    stop: 'Stop',
 }

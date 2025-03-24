@@ -10,4 +10,6 @@ export default {
     create: 'Créer',
     save: 'Enregistrer',
     add: 'Ajouter',
+    start: 'Démarrer',
+    stop: 'Arrêter',
 }

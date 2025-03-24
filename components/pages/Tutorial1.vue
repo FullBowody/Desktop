@@ -18,9 +18,7 @@
                 <UButton variant="link" color="gray" @click="skipTutorial"> {{ $t('tutorial.skip') }} </UButton>
             </div>
         </div>
-        <div class="show flex grow w-min h-full py-8">
-            <span class="bg-slate-200 dark:bg-slate-600 rounded-full w-1 h-full" />
-        </div>
+        <Separator orientation="vertical" padding="8" />
         <div class="show-left flex flex-col grow w-full h-full p-8">
             <Img3D class="flex grow" :settings="imgSettings" />
         </div>

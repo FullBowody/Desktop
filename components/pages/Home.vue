@@ -8,6 +8,7 @@
             <SidebarButton :selected="tab === 'cameras'" @click="changeTab('cameras')" :name="t('home.cameras.title')" icon="i-heroicons-video-camera"></SidebarButton>
             <SidebarButton :selected="tab === 'listeners'" @click="changeTab('listeners')" :name="t('home.listeners.title')" icon="i-heroicons-signal"></SidebarButton>
             <SidebarButton :selected="tab === 'plugins'" @click="changeTab('plugins')" :name="t('home.plugins.title')" icon="i-heroicons-squares-plus"></SidebarButton>
+            <SidebarButton :selected="tab === 'about'" @click="changeTab('about')" :name="t('home.about.title')" icon="i-heroicons-information-circle"></SidebarButton>
             <div class="flex flex-col grow justify-end items-center">
                 <SidebarButton :selected="tab === 'settings'" @click="changeTab('settings')" :name="t('home.settings.title')" icon="i-heroicons-cog-6-tooth"></SidebarButton>
             </div>
@@ -20,16 +21,19 @@
                 <TabsScene />
             </HomeTab>
             <HomeTab name="cameras" :current="tab" :animations="animations">
-                CamerasTab
+                <TabsCameras />
             </HomeTab>
             <HomeTab name="listeners" :current="tab" :animations="animations">
-                ListenersTab
+                <TabsListeners />
             </HomeTab>
             <HomeTab name="plugins" :current="tab" :animations="animations">
-                PluginsTab
+                <TabsPlugins />
+            </HomeTab>
+            <HomeTab name="about" :current="tab" :animations="animations">
+                <TabsAbout />
             </HomeTab>
             <HomeTab name="settings" :current="tab" :animations="animations">
-                SettingsTab
+                <TabsSettings />
             </HomeTab>
         </div>
     </div>
@@ -42,7 +46,7 @@ const router = useCustomRouter();
 const skipTutorial = localStorage.getItem('tutorial') === 'done';
 if (!skipTutorial) router.push('/welcome');
 
-const tabOrder = ['scene', 'cameras', 'listeners', 'plugins', 'settings'];
+const tabOrder = ['scene', 'cameras', 'listeners', 'plugins', 'about', 'settings'];
 const tab = ref(tabOrder[0]);
 const animations = {
     show: 'show-up',
