@@ -80,9 +80,3 @@ function onServerButtonPressed() {
     }, 500);
 }
 </script>
-
-<style>
-.code {
-    @apply py-1 px-2 rounded-md bg-slate-200 dark:bg-slate-600;
-}
-</style>

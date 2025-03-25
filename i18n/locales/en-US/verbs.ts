@@ -12,4 +12,6 @@ export default {
     add: 'Add',
     start: 'Start',
     stop: 'Stop',
+    confirm: 'Confirm',
+    close: 'Close',
 }

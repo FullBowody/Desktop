@@ -15,8 +15,7 @@
         </div>
     </div>
     <UModal v-model="showNewMarkerModal">
-        <div class="p-4 space-y-8">
-            <h3> {{ $t('home.scene.addMarker') }} </h3>
+        <ModalContent :title="$t('home.scene.addMarker')">
             <div class="flex flex-col space-y-4">
                 <UFormGroup :label="$t('home.scene.markerPopup.markerId')" class="flex space-x-4 justify-between items-center">
                     <UInput v-model="markerId" type="number" min="0" max="15" />
@@ -27,10 +26,10 @@
                 :description="$t('home.scene.markerPopup.alreadyPresentMessage')"
             />
             <div class="flex justify-between">
-                <UButton variant="ghost" @click="showNewMarkerModal = false"> {{ $t('verbs.cancel') }} </UButton>
+                <UButton variant="ghost" color="gray" @click="showNewMarkerModal = false"> {{ $t('verbs.cancel') }} </UButton>
                 <UButton @click="addMarker" :disabled="!markerIdValid"> {{ $t('verbs.add') }} </UButton>
             </div>
-        </div>
+        </ModalContent>
     </UModal>
 </template>
 

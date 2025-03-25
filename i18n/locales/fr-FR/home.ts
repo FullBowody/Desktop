@@ -13,6 +13,14 @@ export default {
     },
     cameras: {
         title: 'Caméras',
+        addCamera: {
+            title: 'Ajouter une caméra',
+            name: 'Nom',
+        },
+        delete: {
+            title: 'Supprimer la caméra',
+            message: 'Voulez-vous vraiment supprimer la caméra "{name}" ?'
+        },
     },
     listeners: {
         title: 'Écouteurs',
@@ -31,6 +39,13 @@ export default {
     },
     plugins: {
         title: 'Plugins',
+        default: 'Par défaut',
+        openPluginFolder: 'Ouvrir le dossier du plugin',
+        openPluginsFolder: 'Ouvrir le dossier des plugins',
+        delete: {
+            title: 'Supprimer le plugin',
+            message: 'Voulez-vous vraiment supprimer le plugin "{name}" ?'
+        },
     },
     about: {
         title: 'À propos',

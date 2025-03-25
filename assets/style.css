@@ -143,3 +143,7 @@ button.animate:hover > span, a.animate:hover > span { @apply translate-x-1; }
 
 button[heading].animate:hover, a[heading].animate:hover { @apply -translate-x-1; }
 button[heading].animate:hover > span, a[heading].animate:hover > span { @apply -translate-x-1; }
+
+.code {
+    @apply py-0.5 px-2 rounded-md bg-slate-200 dark:bg-slate-600;
+}

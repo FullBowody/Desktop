@@ -12,4 +12,6 @@ export default {
     add: 'Ajouter',
     start: 'Démarrer',
     stop: 'Arrêter',
+    confirm: 'Confirmer',
+    close: 'Fermer',
 }
